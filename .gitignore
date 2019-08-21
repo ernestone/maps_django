@@ -113,3 +113,5 @@ maps/migrations/__pycache__/
 maps_django/__pycache__/
 
 /.idea/vcs.xml
+!/data/db.sqlite3
+!/data/gis_db_postgis/

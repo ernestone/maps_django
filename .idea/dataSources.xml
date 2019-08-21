@@ -1,11 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="gisdata_postgis" uuid="67ab6d87-3346-4cbe-8103-26403c15bdb5">
+    <data-source source="LOCAL" name="maps_geodjango_postgis" uuid="67ab6d87-3346-4cbe-8103-26403c15bdb5">
       <driver-ref>postgresql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.postgresql.Driver</jdbc-driver>
-      <jdbc-url>jdbc:postgresql://localhost:25432/gisdata</jdbc-url>
+      <jdbc-url>jdbc:postgresql://localhost:25432/gis</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="maps_django_spatialite" uuid="ad3dd870-30e9-409b-b7e1-004d57ef0307">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/maps_django/settings.py</remarks>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:$PROJECT_DIR$/data/db.sqlite3</jdbc-url>
+      <driver-properties>
+        <property name="enable_load_extension" value="true" />
+      </driver-properties>
     </data-source>
   </component>
 </project>
