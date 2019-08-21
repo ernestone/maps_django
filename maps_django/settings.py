@@ -25,7 +25,7 @@ SECRET_KEY = '8$)wt@mkjbp%28^ylr8yrv)8^9*%qzcfmb6^0b*=5bsabg*rim'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
     'maps.apps.MapsConfig',
 ]
 
@@ -75,11 +76,18 @@ WSGI_APPLICATION = 'maps_django.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'NAME': os.path.join(BASE_DIR, 'DATA', 'db.sqlite3'),
+    },
+    'db_postgis': {
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
+        'NAME': 'gis',
+        'USER': 'adm_eam',
+        'PASSWORD': 'eam123',
+        'HOST': 'localhost',
+        'PORT': '25432'
     }
 }
 
