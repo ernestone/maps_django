@@ -1,0 +1,14 @@
+FROM continuumio/miniconda3:latest
+ENV PYTHONUNBUFFERED 1
+ENV LANG C.UTF-8
+
+RUN mkdir /code
+WORKDIR /code
+
+CMD ["/bin/bash"]
+
+# conda
+RUN conda update -n base --yes conda && \
+    conda install -y django geos proj4=5 gdal=2.3 psycopg2 sqlparse libspatialite
+
+COPY . /code/
