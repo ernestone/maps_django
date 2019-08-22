@@ -14,7 +14,7 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-
+DATA_DIR = os.path.join(BASE_DIR, 'DATA')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -25,7 +25,7 @@ SECRET_KEY = '8$)wt@mkjbp%28^ylr8yrv)8^9*%qzcfmb6^0b*=5bsabg*rim'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["0.0.0.0"]
+ALLOWED_HOSTS = ["0.0.0.0", 'localhost']
 
 
 # Application definition
@@ -73,24 +73,31 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'maps_django.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 DATABASES = {
     'default': {
         'ENGINE': 'django.contrib.gis.db.backends.spatialite',
-        'NAME': os.path.join(BASE_DIR, 'DATA', 'db.sqlite3'),
+        'NAME': os.path.join(DATA_DIR, 'db.sqlite3')
     },
     'db_postgis': {
         'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'NAME': 'gis',
         'USER': 'adm_eam',
         'PASSWORD': 'eam123',
-        'HOST': 'localhost',
-        'PORT': '25432'
+        'HOST': 'db',
+        'PORT': '5432'
+    },
+    'repo_gis_adm': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(DATA_DIR, 'repo_gis', 'adm', 'GPKG', 'adm_repo_gis.gpkg')
+    },
+    'repo_gis_ve': {
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
+        'NAME': os.path.join(DATA_DIR, 'repo_gis', 'versions', 'GPKG', 'repo_gis_versions.gpkg')
     }
 }
-
+DATABASE_ROUTERS = ['maps.db_router.MapsRouter']
 
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
@@ -114,9 +121,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en-es'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Madrid'
 
 USE_I18N = True
 
