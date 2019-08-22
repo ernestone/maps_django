@@ -4,10 +4,9 @@ ENV LANG C.UTF-8
 
 RUN mkdir /code
 WORKDIR /code
+COPY requirements_pip.txt requirements_pip.txt
 
-RUN pip install django psycopg2 && \
-    apt-get update -qq && \
-    apt-get upgrade -y -qq && \
-    apt-get install -y -qq binutils libproj-dev gdal-bin libgdal-dev python3-gdal libgeos-3.7.1
-
-COPY . /code/
+RUN apt-get update -qq && \
+    apt-get install -y -qq apt-utils binutils postgresql-client && \
+    apt-get install -y -qq libproj-dev gdal-bin libgdal-dev python3-gdal libgeos-3.7.1 libsqlite3-mod-spatialite && \
+    pip install --requirement requirements_pip.txt
