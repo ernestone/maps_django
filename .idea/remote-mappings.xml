@@ -10,6 +10,7 @@
             </list>
           </settings>
         </remote-mappings>
+        <remote-mappings server-id="python@docker-compose://[D:\dev\python\maps_django\docker-compose.win10.yml]:web/python" />
       </list>
     </list>
   </component>
