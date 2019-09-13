@@ -1,2 +1,4 @@
 django
 psycopg2
+cx_Oracle<7
+django-leaflet
