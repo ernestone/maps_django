@@ -115,3 +115,4 @@ maps_django/__pycache__/
 /.idea/vcs.xml
 !/data/db.sqlite3
 !/data/gis_db_postgis/
+!/oracle-instantclient12.2-basic-12.2.0.1.0-1.x86_64.rpm
