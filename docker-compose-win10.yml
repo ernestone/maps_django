@@ -22,6 +22,22 @@ services:
       - "8000:8000"
     depends_on:
       - db
+  qgisserver:
+    image: camptocamp/qgis-server
+    hostname: qgis-server
+    environment:
+      - QGIS_SERVER_LOG_FILE=/etc/qgisserver/logs/qgis_server/log_qgis_server.log
+      - QGIS_LOG_FILE=/etc/qgisserver/logs/qgis_server/log_qgis.log
+      - QGIS_PROJECT_FILE=/etc/qgisserver/qgis_projects/plaport_consulta.qgz
+      - QGIS_SERVER_CACHE_DIRECTORY=/etc/qgisserver/cache
+      - MAX_CACHE_LAYERS=200
+    volumes:
+      # Wherever you want to mount your data from
+      - ./data:/etc/qgisserver
+    links:
+      - db:db
+    ports:
+      - "8080:80"
 
 volumes:
   db_postgis_vol:

@@ -10,4 +10,4 @@ def maps(request):
     :return HttpResponse:
 
     """
-    return render(request, 'maps.html', {"texto_enviado": "Esto es una prueba!!"})
+    return render(request, 'maps.html')

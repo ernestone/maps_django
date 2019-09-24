@@ -52,5 +52,39 @@
         </library>
       </libraries>
     </data-source>
+    <data-source source="LOCAL" name="maps_django_repo_gis_adm" uuid="e32dbc2f-a24a-42b8-8c7c-9cbf6ac17a25">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <imported>true</imported>
+      <remarks>$PROJECT_DIR$/maps_django/settings.py</remarks>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:D:\dev\python\maps_django\DATA\repo_gis\adm\GPKG\adm_repo_gis.gpkg</jdbc-url>
+      <driver-properties>
+        <property name="enable_load_extension" value="true" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="GISDATAPRE" uuid="3115fa54-d06a-424b-849d-b3da90658186">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@GISDATAPRE</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="TNSADMIN_DIR" value="$PROJECT_DIR$/apb_oracle_tns_admin" />
+      </jdbc-additional-properties>
+      <driver-properties>
+        <property name="v$session.program" value="DataGrip" />
+      </driver-properties>
+    </data-source>
+    <data-source source="LOCAL" name="GISDATA12" uuid="f5d27e2c-1b64-49fb-8c2c-fb52d8c5c9f4">
+      <driver-ref>oracle</driver-ref>
+      <synchronize>true</synchronize>
+      <auto-commit>false</auto-commit>
+      <jdbc-driver>oracle.jdbc.OracleDriver</jdbc-driver>
+      <jdbc-url>jdbc:oracle:thin:@ORANORDPRE2.port.apb.es:1521:GISDATA</jdbc-url>
+      <driver-properties>
+        <property name="v$session.program" value="DataGrip" />
+      </driver-properties>
+    </data-source>
   </component>
 </project>
